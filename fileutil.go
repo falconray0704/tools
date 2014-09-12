@@ -5,10 +5,6 @@ import (
 )
 
 func FileExist(file string) bool {
-	f, err := os.Open(file)
-	defer f.Close()
-	if err != nil && os.IsNotExist(err) {
-		return false
-	}
-	return true
+	_, err := os.Stat(filename)
+        return err == nil || os.IsExist(err)
 }
