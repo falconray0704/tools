@@ -24,6 +24,15 @@ func URLEncode(rawurl string) string {
 	}
 	return u.Query().Encode()
 }
+
+func GetUrlPath(rawurl string) string {
+	u, err := url.Parse(rawurl)
+	if err != nil {
+		return rawurl
+	}
+	return u.Path
+}
+
 func GetRealIp(req *http.Request) string {
 	ip := req.Header.Get("X-Forwarded-For")
 	if "" == ip || "unknown" == ip {
