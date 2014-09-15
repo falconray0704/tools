@@ -5,6 +5,6 @@ import (
 )
 
 func FileExist(file string) bool {
-	_, err := os.Stat(filename)
+	_, err := os.Stat(file)
 	return err == nil || os.IsExist(err)
 }
